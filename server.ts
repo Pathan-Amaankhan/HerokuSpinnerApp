@@ -16,15 +16,16 @@ app.use((req: any, res: any, next: any) => {
 app.use(express.json());
 
 app.get('/favicon.ico', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/favicon.ico'));
-app.get('/runtime-es2015.js', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/runtime-es2015.js'));
-app.get('/polyfills-es2015.js', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/polyfills-es2015.js'));
-app.get('/styles-es2015.js', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/styles-es2015.js'));
-app.get('/vendor-es2015.js', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/vendor-es2015.js'));
-app.get('/main-es2015.js', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/main-es2015.js'));
-app.get('/runtime-es2015.js.map', (req: any, res: any)=> res.sendFile(__dirname+'/dist/spinnerApp/runtime-es2015.js.map'));
-app.get('/scripts.js', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/scripts.js'));
-app.get('/Roboto.ttf', (req: any, res: any) => res.sendFile(__dirname + '/dist/spinnerApp/assets/fonts/'+req.originalUrl));
-app.get('/Rancho.ttf', (req: any, res: any) => res.sendFile(__dirname + '/dist/spinnerApp/assets/fonts/'+req.originalUrl));
+
+app.get('/runtime*', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/' + req.originalUrl));
+app.get('/polyfills*', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/' + req.originalUrl));
+app.get('/styles*', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/' + req.originalUrl));
+app.get('/main*', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/' + req.originalUrl));
+app.get('/scripts*', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/' + req.originalUrl));
+
+
+app.get('/Roboto*', (req: any, res: any) => res.sendFile(__dirname + '/dist/spinnerApp/'+req.originalUrl));
+app.get('/Rancho*', (req: any, res: any) => res.sendFile(__dirname + '/dist/spinnerApp/'+req.originalUrl));
 app.get('/assets/images/*', (req: any, res: any) => res.sendFile(__dirname + '/dist/spinnerApp/' + req.originalUrl));
 app.get('/*', (req: any, res: any) => res.sendFile(__dirname+'/dist/spinnerApp/index.html'));
 
